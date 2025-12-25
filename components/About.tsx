@@ -4,71 +4,77 @@ import { motion } from 'framer-motion';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 bg-slate-900/50">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
+    <section id="about" className="py-40 bg-[#030712] overflow-hidden">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
+          
+          {/* Left Text */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative"
+            transition={{ duration: 1 }}
+            className="lg:col-span-7"
           >
-            <div className="aspect-square rounded-3xl overflow-hidden glass border-2 border-slate-800 shadow-2xl relative">
-              <img 
-                src="https://picsum.photos/seed/vinesh/800/800" 
-                alt="Vinesh Acharya" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
-              <div className="absolute bottom-8 left-8">
-                <p className="text-white text-2xl font-bold">Vinesh Acharya</p>
-                <p className="text-emerald-400 font-medium">Founder & CEO</p>
-              </div>
+            <div className="mb-10 flex items-center space-x-4">
+              <span className="w-16 h-[2px] bg-violet-600"></span>
+              <span className="text-xs font-black uppercase tracking-[0.4em] text-violet-500">Leadership Strategy</span>
             </div>
-            {/* Decorative Element */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-emerald-500/20 blur-3xl -z-10 rounded-full"></div>
-          </motion.div>
+            
+            <h2 className="section-title text-white mb-16">
+              ARCHITECTURE IS <span className="text-cyan-400">AUTHORITY.</span> <br />
+              <span className="text-violet-500">PRECISION</span> IS PROFIT.
+            </h2>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-emerald-500 font-semibold tracking-widest uppercase mb-4">About Me</h2>
-            <h3 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-              Transforming ideas into <span className="text-slate-400">exceptional digital experiences</span>
-            </h3>
-            <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-              Passionate tech entrepreneur with over a decade of experience in delivering high-end web and mobile solutions. 
-              Founded Design4U in 2014 with a vision to bridge the gap between complex business challenges and elegant software solutions. 
-              Leading a team of expert developers specialized in React, Flutter, Python, and modern tech stacks.
-            </p>
-
-            <div className="grid grid-cols-2 gap-6 mb-10">
-              <div className="p-4 rounded-2xl glass border border-slate-800">
-                <p className="text-slate-500 text-sm mb-1 uppercase tracking-wider">Location</p>
-                <p className="text-white font-medium">Bengaluru, India</p>
-              </div>
-              <div className="p-4 rounded-2xl glass border border-slate-800">
-                <p className="text-slate-500 text-sm mb-1 uppercase tracking-wider">Email</p>
-                <p className="text-white font-medium">vinesh@design4u.in</p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+              <p className="text-xl text-slate-400 leading-relaxed font-medium">
+                Vinesh Acharya operates at the bleeding edge of technological mastery. As CTO, his focus remains on building assets that don't just function, but define markets through superior architecture.
+              </p>
+              <p className="text-xl text-slate-400 leading-relaxed font-medium">
+                Every line of code is weighted against long-term operational performance. We prioritize clean, modular systems because they are the most sustainable path to growth. Speed is our byproduct, quality is our mandate.
+              </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-12">
               {[
-                { label: 'Years Exp', value: '10+' },
-                { label: 'Projects', value: '500+' },
-                { label: 'Team size', value: '15+' },
-                { label: 'Satisfaction', value: '98%' }
-              ].map((stat, idx) => (
-                <div key={idx} className="text-center p-4">
-                  <p className="text-3xl font-bold text-emerald-500 mb-1">{stat.value}</p>
-                  <p className="text-[10px] uppercase tracking-tighter text-slate-500 font-semibold">{stat.label}</p>
+                { label: 'Firm Tenure', val: '11 Years' },
+                { label: 'Global Launches', val: '500+' },
+                { label: 'Team Experts', val: '15+' },
+                { label: 'Uptime Avg', val: '99.9%' }
+              ].map((item, i) => (
+                <div key={i} className="border-l-2 border-slate-800/50 pl-8 py-3 group hover:border-violet-500 transition-all duration-500">
+                  <p className="text-4xl font-black text-white mb-2 group-hover:text-violet-400 transition-colors">{item.val}</p>
+                  <p className="text-[10px] uppercase font-black tracking-[0.3em] text-cyan-400">{item.label}</p>
                 </div>
               ))}
             </div>
           </motion.div>
+
+          {/* Right Image */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2 }}
+            className="lg:col-span-5 relative"
+          >
+            <div className="card-reveal overflow-hidden h-[650px] w-full border border-violet-500/10">
+              <img 
+                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200" 
+                alt="Cyber Infrastructure" 
+                className="w-full h-full object-cover parallax-img grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all duration-1000"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/10 to-transparent flex items-end p-10 md:p-14">
+                <div className="glass p-10 rounded-[3rem] border border-white/5 w-full shadow-3xl">
+                   <h4 className="text-3xl font-black text-white mb-3 uppercase tracking-tighter">System Architect</h4>
+                   <p className="text-cyan-400 font-black uppercase tracking-[0.4em] text-[10px]">Strategic Engineering Unit</p>
+                </div>
+              </div>
+            </div>
+            {/* Background floating decor */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-violet-600/10 blur-[80px] rounded-full -z-10 animate-pulse"></div>
+          </motion.div>
+
         </div>
       </div>
     </section>
